@@ -1,0 +1,12 @@
+---
+# input_user:
+
+input_press_and_hold_enabled: False
+input_key_repeat: 2
+input_initial_key_repeat: 15
+input_natural_scrolling: 0
+input_force_click: 1
+input_trackpad_scaling: 1
+input_trackpad_tap_click: 1
+
+...
