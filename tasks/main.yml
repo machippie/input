@@ -1,5 +1,5 @@
 ---
-- name: input user
+- name: Fact input user
   set_fact:
     input_user: '{{ input_user | default(homebrew_user) | default(ansible_user_id) }}'
   tags:
@@ -8,9 +8,9 @@
 - become: '{{ (input_user != ansible_user_id) | bool }}'
   become_user: '{{ input_user }}'
   block:
-    - name: presshold enabled
-      # notify:
-      #   - kill input
+    - name: Press and hold
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: ApplePressAndHoldEnabled
@@ -20,9 +20,9 @@
       tags:
         - input
 
-    - name: keyrepeat rate
-      # notify:
-      #   - kill input
+    - name: Key repeat rate
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: KeyRepeat
@@ -32,9 +32,9 @@
       tags:
         - input
 
-    - name: keyrepeat initial
-      # notify:
-      #   - kill input
+    - name: Initial key repeat
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: InitialKeyRepeat
@@ -44,9 +44,9 @@
       tags:
         - input
 
-    - name: natural scrolling
-      # notify:
-      #   - kill input
+    - name: Swipe scroll direction
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.swipescrolldirection
@@ -56,9 +56,9 @@
       tags:
         - input
 
-    - name: force click
-      # notify:
-      #   - kill input
+    - name: Trackpad force click
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.trackpad.forceClick
@@ -68,9 +68,9 @@
       tags:
         - input
 
-    - name: trackpad scaling
-      # notify:
-      #   - kill input
+    - name: Trackpad scaling
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.trackpad.scaling
@@ -80,9 +80,9 @@
       tags:
         - input
 
-    - name: trackpad tapclick
-      # notify:
-      #   - kill input
+    - name: Trackpad tap click
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
         key: Clicking
@@ -92,9 +92,9 @@
       tags:
         - input
 
-    - name: wipe replacement
-      # notify:
-      #   - kill input
+    - name: Dictionary replacement items
+      notify:
+        - Kill systemuiserver
       osx_defaults:
         domain: NSGlobalDomain
         key: NSUserDictionaryReplacementItems

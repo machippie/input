@@ -1,12 +1,28 @@
+# Standards: 0.1
 ---
+# @var input_user:description: User to run user-specific commands
+# @var input_user:value: input_user | default(homebrew_user) | default(ansible_user_id)
 # input_user:
 
+# @var input_press_and_hold_enabled:description: Press anmd hold enabled
 input_press_and_hold_enabled: False
+
+# @var input_key_repeat:description: Key repeat rate
 input_key_repeat: 2
+
+# @var input_initial_key_repeat:description: Initial key repeat
 input_initial_key_repeat: 15
+
+# @var input_natural_scrolling:description: Swipe scroll direction
 input_natural_scrolling: 0
+
+# @var input_force_click:description: Trackpad force click
 input_force_click: 1
+
+# @var input_trackpad_scaling:description: Trackpad scaling
 input_trackpad_scaling: 1
+
+# @var input_trackpad_tap_click:description: Trackpad tap click
 input_trackpad_tap_click: 1
 
 ...
