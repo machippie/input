@@ -3,7 +3,7 @@
   command: killall SystemUIServer
   register: systemuiserver_kill
   failed_when: systemuiserver_kill.rc != 0 and "No matching processes belonging to you were found" not in systemuiserver_kill.stderr
-  become: '{{ (input_user != ansible_user_id) | bool }}'
-  become_user: '{{ input_user }}'
+  become: "{{ (input_user != ansible_user_id) | bool }}"
+  become_user: "{{ input_user }}"
 
 ...

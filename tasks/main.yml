@@ -1,12 +1,12 @@
 ---
 - name: Fact input user
   set_fact:
-    input_user: '{{ input_user | default(homebrew_user) | default(ansible_user_id) }}'
+    input_user: "{{ input_user | default(homebrew_user) | default(ansible_user_id) }}"
   tags:
     - input
 
-- become: '{{ (input_user != ansible_user_id) | bool }}'
-  become_user: '{{ input_user }}'
+- become: "{{ (input_user != ansible_user_id) | bool }}"
+  become_user: "{{ input_user }}"
   block:
     - name: Press and hold
       notify:
@@ -15,7 +15,7 @@
         domain: NSGlobalDomain
         key: ApplePressAndHoldEnabled
         type: bool
-        value: '{{ input_press_and_hold_enabled }}'
+        value: "{{ input_press_and_hold_enabled }}"
         state: present
       tags:
         - input
@@ -27,7 +27,7 @@
         domain: NSGlobalDomain
         key: KeyRepeat
         type: int
-        value: '{{ input_key_repeat }}'
+        value: "{{ input_key_repeat }}"
         state: present
       tags:
         - input
@@ -39,7 +39,7 @@
         domain: NSGlobalDomain
         key: InitialKeyRepeat
         type: int
-        value: '{{ input_initial_key_repeat }}'
+        value: "{{ input_initial_key_repeat }}"
         state: present
       tags:
         - input
@@ -51,7 +51,7 @@
         domain: NSGlobalDomain
         key: com.apple.swipescrolldirection
         type: int
-        value: '{{ input_natural_scrolling }}'
+        value: "{{ input_natural_scrolling }}"
         state: present
       tags:
         - input
@@ -63,7 +63,7 @@
         domain: NSGlobalDomain
         key: com.apple.trackpad.forceClick
         type: int
-        value: '{{ input_force_click }}'
+        value: "{{ input_force_click }}"
         state: present
       tags:
         - input
@@ -75,7 +75,7 @@
         domain: NSGlobalDomain
         key: com.apple.trackpad.scaling
         type: float
-        value: '{{ input_trackpad_scaling }}'
+        value: "{{ input_trackpad_scaling }}"
         state: present
       tags:
         - input
@@ -87,7 +87,7 @@
         domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
         key: Clicking
         type: int
-        value: '{{ input_trackpad_tap_click }}'
+        value: "{{ input_trackpad_tap_click }}"
         state: present
       tags:
         - input
